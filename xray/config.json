@@ -1,0 +1,61 @@
+{
+  "log": {
+    "loglevel": "warning",
+    "access": "/dev/null",
+    "error": "/etc/xray/error.log"
+  },
+  "routing": {
+    "domainStrategy": "AsIs"
+    "rules": [],
+  },
+  "dns": {
+    "servers": [
+      "10.8.1.3"
+    ]
+  },
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "tag": "vless_tls",
+      "settings": {
+        "clients": [
+          {
+            "id": "",
+            "email": "me@myserver",
+            "flow": "xtls-rprx-vision"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "google.com:443",
+          "serverNames": [
+            "www.google.com", "google.com"
+          ],
+          "privateKey": "",
+          "shortIds": [
+            ""
+          ]
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    }
+  ]
+}
