@@ -39,6 +39,7 @@ services:
     hostname: pihole
     dns:
       - 10.8.1.4 # unbound
+      - 127.0.0.1
     environment:
       # ⚠️ Change the Web UI Password:
       WEBPASSWORD: <PIHOLE_PASSWORD>
